@@ -1,16 +1,20 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import {Link} from 'react-router-dom'
 
-function NavBar() {
+
+function NavBar({favorites}) {
   return (
     <>
       <Navbar>
         <Container>
-          <Navbar.Brand href="http://127.0.0.1:5173/">Home</Navbar.Brand>
+          <Link className="text-lg" to ="http://127.0.0.1:5173/">Home</Link>
           <Nav className="me-auto">
-            <Nav.Link href="http://127.0.0.1:5173/about/">About</Nav.Link>
-            <Nav.Link href="http://127.0.0.1:5173/characters/">Characters</Nav.Link>
+            <Link to="http://127.0.0.1:5173/about/">About</Link>
+            <Link to="http://127.0.0.1:5173/characters/">Characters</Link>
+            <Link to="http://127.0.0.1:5173/favorites/">Favorites {favorites.length}</Link>
+
           </Nav>
         </Container>
       </Navbar>

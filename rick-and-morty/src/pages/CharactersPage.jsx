@@ -1,17 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from '../components/Card';
+import CharCard from '../components/Card';
+import { useOutletContext } from "react-router-dom";
+
 
 const CharactersPage =() =>{
 
-    const [chars, setChars] = useState([])
-    const [page, setPage] = useState(1)
+    const [chars, setChars] = useState([]);
+    const [page, setPage] = useState(1);
+    const {favorites, setFavorites} = useOutletContext();
 
     useEffect(() => {
         const getChars = async () => {
           try {
             const response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`);
-            console.log(response.data.results);
+            // console.log(response.data.results);
             setChars(response.data.results)
           }
           catch (error) {
@@ -27,13 +30,17 @@ const CharactersPage =() =>{
     <>  
         <h2>Characters Page</h2>
         <div className="card-grid">
-        {chars.map((elem, index) => (
-            <Card
+        {chars.map((elem, idx) => (
+            <CharCard 
+                key = {idx}
+                id = {elem.id}
                 name={elem.name}
                 image={elem.image}
                 species={elem.species}
                 status={elem.status}
                 gender={elem.gender}
+                setFavorites={setFavorites}
+                favorites={favorites}
             />
         ))}
         </div>
