@@ -7,7 +7,6 @@ import CharCard from '../components/Card';
 const CharDetailsPage = () => {
     const [character, setCharacter] = useState({})
     const {id} = useParams()
-    const {favorites, setFavorites} = useOutletContext
 
     const getCharDetails = async() => {
         let response = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)

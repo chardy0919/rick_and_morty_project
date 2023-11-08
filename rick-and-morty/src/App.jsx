@@ -1,22 +1,28 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import {Outlet} from "react-router-dom";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import NavBar from './components/Navbar';
 
 function App() {
-  const [data, setData] = useState([])
-  const [favorites, setFavorites] = useState([])
 
-  useEffect(() => {
-    console.log(favorites)
-  }, [favorites])
+  const [favorites, setFavorites] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
+
   
 
   return (
     <>
-      <h1>Rick and Morty</h1>
-      <NavBar favorites = {favorites}/>
-      <Outlet context={{favorites, setFavorites}}/>
+      <Container id="mainContainer">
+        <Row>
+          <Col>
+            <NavBar favorites = {favorites}/>
+            <Outlet id= "content" context={{favorites, setFavorites}}/>
+          </Col>  
+        </Row>
+      </Container>
     </>
   )
 }

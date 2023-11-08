@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 function CharCard({id, name, image, species, status, gender, setFavorites, favorites}) {
+  
   const navigate = useNavigate();
+
   const removeFromFavorites = () => {
     // Filter out the card with the specified ID from the favorites array
     const updatedFavorites = favorites.filter((favorite) => favorite.id !== id);

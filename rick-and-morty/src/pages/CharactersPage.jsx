@@ -28,8 +28,8 @@ const CharactersPage =() =>{
       
     return  (
     <>  
-        <h2>Characters Page</h2>
-        <div className="card-grid">
+
+      <div className="card-grid">
         {chars.map((elem, idx) => (
             <CharCard 
                 key = {idx}
@@ -43,23 +43,23 @@ const CharactersPage =() =>{
                 favorites={favorites}
             />
         ))}
-        </div>
+      </div>
   
-        <div className="page-buttons">
-            <button id="prev-button" onClick={()=> page > 1
-                ?
-                setPage(page - 1)
-                :
-                setPage(42)}
-            >Prev</button>
-            <p className="m-4">Page {page} of 42</p>
-            <button id="next-button" onClick={()=> page === 42 
-                ? 
-                setPage(1)
-                :
-                setPage(page + 1)}
-            >Next</button>
-        </div>
+      <div className="page-buttons">
+          <button id="prev-button" onClick={()=> page > 1
+              ?
+              setPage(page - 1)
+              :
+              setPage(42)}
+          >Prev</button>
+          <p className="m-4">Page {page} of 42</p>
+          <button id="next-button" onClick={()=> page === 42 
+              ? 
+              setPage(1)
+              :
+              setPage(page + 1)}
+          >Next</button>
+      </div>
     </>
     )
 }
