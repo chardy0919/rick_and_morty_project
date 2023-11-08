@@ -11,9 +11,9 @@ function NavBar({favorites}) {
         <Container>
           <Link className="text-lg" to ="http://127.0.0.1:5173/">Home</Link>
           <Nav className="me-auto">
-            <Link to="http://127.0.0.1:5173/about/">About</Link>
-            <Link to="http://127.0.0.1:5173/characters/">Characters</Link>
-            <Link to="http://127.0.0.1:5173/favorites/">Favorites {favorites.length}</Link>
+            <Nav.Link as={Link} to="about/">About</Nav.Link>
+            <Nav.Link as={Link} to="characters/">Characters</Nav.Link>
+            <Nav.Link as={Link} to="favorites/">Favorites {favorites.length}</Nav.Link>
 
           </Nav>
         </Container>
